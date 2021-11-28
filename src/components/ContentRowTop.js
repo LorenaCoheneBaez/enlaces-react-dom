@@ -2,7 +2,8 @@ import React from "react";
 import ContentRowCenter from "./ContentRowCenter";
 import ContentRowMovies from "./ContentRowMovies";
 import Chart from "./Chart";
-import { Routes, Route } from "react-router-dom";
+
+import { Routes, Route,  } from "react-router-dom";
 
 function ContentRowTop() {
   return (
@@ -14,14 +15,16 @@ function ContentRowTop() {
         </div>
 
         {/*<!-- Content Row Movies-->*/}
-        {/*Paso por route el nombre de la ruta 'exacto' y el componente que de mostrará*/}
+        {/*Paso por route el nombre de la ruta 'exacto' y el componente, no va **component** que de mostrará*/}
+        {/*Según la documentación más de una ruta debe ir dentro de Routes y los **element** como elemento JSX  */}
         <Routes>
-          <Route exact path="/metric" component={ContentRowMovies} />
+          <Route exact path="/metric" element={<ContentRowMovies />} />
 
 
-          <Route exact path="/movies" component={Chart} />
+          <Route exact path="/movies" element={<Chart />} />
+          
         </Routes>
-          <ContentRowCenter />
+            <ContentRowCenter />
       </div>
       {/*<!--End Content Row Top-->*/}
     </React.Fragment>

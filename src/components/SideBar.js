@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../assets/images/logo-DH.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function SideBar() {
   return (
@@ -23,10 +23,10 @@ function SideBar() {
 
         {/*<!-- Nav Item - Dashboard -->*/}
         <li className="nav-item active">
-          <Link className="nav-link" to="/">
+          <a className="nav-link" href="/">
             <i className="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard - DH movies</span>
-          </Link>
+          </a>
         </li>
 
         {/*<!-- Divider -->*/}
@@ -34,13 +34,14 @@ function SideBar() {
 
         {/*<!-- Heading -->*/}
         <div className="sidebar-heading">Actions</div>
-
+        {/**Cada Link debe terminar con la etiqueta <Outlet /> importada!!!!*/}
         {/*<!-- Nav Item - Pages -->*/}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/lastMovie">
             <i className="fas fa-fw fa-folder"></i>
             <span>Última Película</span>
           </Link>
+           <Outlet />
         </li>
 
         {/*<!-- Nav Item - Charts -->*/}
@@ -49,6 +50,7 @@ function SideBar() {
             <i className="fas fa-fw fa-chart-area"></i>
             <span>Métricas</span>
           </Link>
+          <Outlet />
         </li>
 
         {/*<!-- Nav Item - Tables -->*/}
@@ -57,14 +59,16 @@ function SideBar() {
             <i className="fas fa-fw fa-table"></i>
             <span>Películas</span>
           </Link>
+          <Outlet />
         </li>
+
         <li className="nav-item">
-          <Link className="nav-link" to="http://localhost:3000/genre">
+          <Link className="nav-link" to="/genre">
             <i className="fas fa-fw fa-table"></i>
             <span>Géneros</span>
           </Link>
+        <Outlet />
         </li>
-
         {/*<!-- Divider -->*/}
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>
@@ -73,3 +77,6 @@ function SideBar() {
   );
 }
 export default SideBar;
+
+
+
