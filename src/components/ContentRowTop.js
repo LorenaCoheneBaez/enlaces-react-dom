@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./Home";
 import ContentRowCenter from "./ContentRowCenter";
 import ContentRowMovies from "./ContentRowMovies";
 import Chart from "./Chart";
@@ -18,11 +19,11 @@ function ContentRowTop() {
         {/*Paso por route el nombre de la ruta 'exacto' y el componente, no va **component** que de mostrará*/}
         {/*Según la documentación más de una ruta debe ir dentro de Routes y los **element** como elemento JSX  */}
         <Routes>
+
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/metric" element={<ContentRowMovies />} />
-
-
           <Route exact path="/movies" element={<Chart />} />
-          
+               
         </Routes>
             <ContentRowCenter />
       </div>
